@@ -4,8 +4,7 @@ import { ScrollArea } from "./ui/scroll-area";
 export default function QuotesList({ quotes }) {
   return (
     <>
-      <h2 className="font-bold">Featured Quotes</h2>
-      <ScrollArea className="h-110 w-full rounded-md border p-2">
+      <ScrollArea className="bg-[#733C30] h-120 lg:h-115 w-full rounded-md border-2 border-[#733C30] py-2 px-5 ">
         {quotes.map((quote, i) => (
           <Quotes
             key={i}

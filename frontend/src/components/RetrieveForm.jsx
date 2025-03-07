@@ -17,7 +17,7 @@ export default function RetrieveForm({ setQuotes }) {
   };
 
   return (
-    <form action="/api/quote" method="get" onSubmit={handleRetrieve} className="flex gap-2 h-10">
+    <form action="/api/quote" method="get" onSubmit={handleRetrieve} className="flex gap-8 h-10">
       <Select name="max-age">
         <SelectTrigger className="w-5/12">
           <SelectValue placeholder="Get Messages From.." />
@@ -29,7 +29,7 @@ export default function RetrieveForm({ setQuotes }) {
           <SelectItem value="0">All Time</SelectItem>
         </SelectContent>
       </Select>
-      <Button type="submit" className="w-4/12 text-xs md:text-sm">Get Messages</Button>
+      <Button type="submit" className="w-4/12 text-xs md:text-sm ">Get Messages</Button>
     </form>
   );
 }

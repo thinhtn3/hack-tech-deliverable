@@ -46,10 +46,7 @@ export default function SubmitForm({ setQuotes }) {
   };
 
   return (
-    <Card className="flex w-86 md:w-160 justify-center">
-      <CardHeader className="text-center">
-        <h2 className="text-2xl font-semibold">Submit a quote</h2>
-      </CardHeader>
+    <Card className="flex w-86 md:w-160 justify-center bg-[#733C30] opacity-80 border-0">
       {/* TODO: implement custom form submission logic to not refresh the page */}
       <CardContent>
         <form
@@ -81,7 +78,7 @@ export default function SubmitForm({ setQuotes }) {
       <CardFooter>
         {showAlert && (
           <Alert
-            className={`transition-opacity duration-500 ${
+            className={`bg-[#D9C8B4] border-0 transition-opacity duration-500 ${
               fade ? "opacity-0" : "opacity-100"
             }`}
           >
