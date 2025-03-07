@@ -7,6 +7,7 @@ from fastapi.responses import RedirectResponse
 from typing_extensions import TypedDict
 
 from services.database import JSONDatabase
+from utils.date import get_max_age
 
 
 class Quote(TypedDict):
@@ -14,9 +15,7 @@ class Quote(TypedDict):
     message: str
     time: str
 
-
 database: JSONDatabase[list[Quote]] = JSONDatabase("data/database.json")
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
@@ -48,3 +47,18 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 
 
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
+@app.get("/quote")
+def get_messages(max_age: int = 0):
+    quotes = database["quotes"]
+    if max_age == 0:
+        return quotes
+    elif max_age > 0:
+        from_date = datetime.fromisoformat(get_max_age(max_age))
+        filtered_quotes = []
+        for quote in quotes:
+            quote_time = datetime.fromisoformat(quote["time"])
+            print(quote["time"])
+            if quote_time > from_date:
+                print("foo")
+                filtered_quotes.append(quote)
+        return filtered_quotes
