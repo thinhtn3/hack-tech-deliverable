@@ -19,9 +19,9 @@ export default function Quotes({ name, message, time }) {
 
   const formattedDate = dateObj.toLocaleString("en-US", options);
   return (
-    <Card className="py-0 my-4 hover:bg-gray-100 transition-all duration-300">
+    <Card className=" w-full py-0 my-4 hover:bg-gray-100 transition-all duration-300">
       <CardHeader>
-        <p className="border-l-4 px-3 border-black my-5">{message}</p>
+        <p className="border-l-4 px-2 border-black my-5">{message}</p>
       </CardHeader>
       <CardContent className="flex justify-end">
         <CardTitle>- {name}</CardTitle>
