@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Quotes from "./components/Quotes";
+import QuotesList from "./components/QuotesList";
 import SubmitForm from "./components/SubmitForm";
 import RetrieveForm from "./components/RetrieveForm";
 import quotebook from "./assets/quotebook.png";
@@ -36,16 +36,7 @@ function App() {
         <div className="flex flex-col gap-4 rounded-md border p-4">
           <RetrieveForm setQuotes={setQuotes} />
           {/* TODO: Display the actual quotes from the database */}
-          <ScrollArea className="h-100 w-160 rounded-md border p-2">
-            {quotes.map((quote, i) => (
-              <Quotes
-                key={i}
-                name={quote.name}
-                message={quote.message}
-                time={quote.time}
-              />
-            ))}
-          </ScrollArea>
+          <QuotesList quotes={quotes} />
         </div>
       </div>
     </>
