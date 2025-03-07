@@ -1,15 +1,29 @@
 import "./App.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Quotes from "./components/Quotes";
+import { use } from "react";
 
 function App() {
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      const response = await axios.get("/api/quote");
+      setQuotes(response.data);
+    };
+    fetchQuotes();
+  }, [])
   const [quotes, setQuotes] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    axios.post("/api/quote", new FormData(e.target));
-    e.target.reset();
+    const formData = new FormData();
+    formData.append("name", e.target["name"].value);
+    formData.append("message", e.target["message"].value);
+    const response = await axios.post("/api/quote", formData);
+    if (response.status === 200) {
+      const repsonse = await axios.get("/api/quote");
+      setQuotes(repsonse.data);
+    }
   };
 
   const handleRetrieve = async (e) => {
