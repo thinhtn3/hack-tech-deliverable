@@ -19,7 +19,7 @@ export default function RetrieveForm({ setQuotes }) {
   return (
     <form action="/api/quote" method="get" onSubmit={handleRetrieve} className="flex gap-8 h-10">
       <Select name="max-age">
-        <SelectTrigger className="w-5/12">
+        <SelectTrigger className="w-5/12 text-[#F2E2CE]">
           <SelectValue placeholder="Get Messages From.." />
         </SelectTrigger>
         <SelectContent>

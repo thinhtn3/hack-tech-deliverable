@@ -42,10 +42,12 @@
 }
 body {
   height: 100vh;
-  background-color: #402924;
+  background-color: #1c2f2f;
+  /* background-color: #0E1717; */
   padding: 0;
   margin: 0;
 }
+
 
 @media screen and (min-width: 1024px) {
   body {
